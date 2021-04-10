@@ -27,24 +27,24 @@ namespace PaymentWebAPI.Controllers
             return _context.PaymentDetails;
         }
 
-        //// GET: api/PaymentDetails/5
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetPaymentDetail([FromRoute] int id)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        // GET: api/PaymentDetails/5
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetPaymentDetail([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    var paymentDetail = await _context.PaymentDetails.FindAsync(id);
+            var paymentDetail = await _context.PaymentDetails.FindAsync(id);
 
-        //    if (paymentDetail == null)
-        //    {
-        //        return NotFound();
-        //    }
+            if (paymentDetail == null)
+            {
+                return NotFound();
+            }
 
-        //    return Ok(paymentDetail);
-        //}
+            return Ok(paymentDetail);
+        }
 
         // PUT: api/PaymentDetails/5
         [HttpPut("{id}")]
